@@ -508,6 +508,11 @@
     {
       "ts": "2026-10-10",
       "who": "Distasteful",
+      "what": "feat(wiki): expand layout to fluid widescreen and author 8 generalized harness articles"
+    },
+    {
+      "ts": "2026-10-10",
+      "who": "Distasteful",
       "what": "feat(wiki): initialize core-harness-wiki repository and zero-dependency static engine"
     },
     {

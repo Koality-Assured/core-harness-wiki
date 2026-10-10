@@ -1,0 +1,26 @@
+name: Validate Content & Manifest
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Lint & Validate Wiki Content
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate Markdown & Frontmatter
+        run: node docs/scripts/validate-content.mjs
+
+      - name: Rebuild Manifest Test
+        run: node docs/scripts/build-manifest.mjs

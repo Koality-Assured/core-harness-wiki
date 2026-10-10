@@ -1,0 +1,72 @@
+{
+  "name": "Core Harness Wiki",
+  "tagline": "The Knowledge Base & Operating System for AI Agent Harnesses",
+  "description": "Interactive documentation, architectural standards, tool patterns, and agent protocols for the Core Harness ecosystem.",
+  "org": "Koality-Assured",
+  "repo": "Koality-Assured/core-harness-wiki",
+  "branch": "main",
+  "siteDir": "docs",
+  "sections": [
+    {
+      "id": "architecture",
+      "name": "Architecture",
+      "code": "ARCH",
+      "desc": "Core harness architecture, context firebreaks, prompt caching, and memory subsystems.",
+      "priority": "primary",
+      "accent": "#00f0ff"
+    },
+    {
+      "id": "standards",
+      "name": "Standards",
+      "code": "STND",
+      "desc": "Normative standards, context management, repository taxonomy, and naming rules.",
+      "priority": "primary",
+      "accent": "#54d18a"
+    },
+    {
+      "id": "ai-tooling",
+      "name": "AI Tooling",
+      "code": "TOOL",
+      "desc": "Operator archetypes, skills catalog, A2A interaction protocol, and memory schemas.",
+      "priority": "primary",
+      "accent": "#7aa2ff"
+    },
+    {
+      "id": "supporting",
+      "name": "Supporting",
+      "code": "SUPP",
+      "desc": "Operational tool patterns, CLI guides, ast-grep, QMD discovery, and Headroom.",
+      "priority": "primary",
+      "accent": "#f29254"
+    },
+    {
+      "id": "references",
+      "name": "References",
+      "code": "REF",
+      "desc": "Industry standards, benchmark methodologies, and conventional commit rules.",
+      "priority": "primary",
+      "accent": "#c59dff"
+    }
+  ],
+  "defaultTheme": "operative",
+  "defaultDensity": "regular",
+  "defaultArticleLayout": "sidebar",
+  "defaultHomeStyle": "dashboard",
+  "severities": {
+    "critical": { "label": "CRITICAL", "tone": "crit" },
+    "high":     { "label": "HIGH",     "tone": "high" },
+    "medium":   { "label": "MEDIUM",   "tone": "med" },
+    "low":      { "label": "LOW",      "tone": "low" },
+    "info":     { "label": "INFO",     "tone": "info" }
+  },
+  "skipPrefixes": [
+    ".git/",
+    ".github/",
+    "node_modules/",
+    "scratch/",
+    "dist/",
+    "build/",
+    "tmp/",
+    "docs/scripts/"
+  ]
+}

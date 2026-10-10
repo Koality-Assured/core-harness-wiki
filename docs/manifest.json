@@ -1,0 +1,435 @@
+{
+  "meta": {
+    "name": "Core Harness Wiki",
+    "tagline": "The Knowledge Base & Operating System for AI Agent Harnesses",
+    "description": "Interactive documentation, architectural standards, tool patterns, and agent protocols for the Core Harness ecosystem.",
+    "org": "Koality-Assured",
+    "repo": "Koality-Assured/core-harness-wiki",
+    "branch": "main",
+    "contentBase": ".",
+    "updated": "2026-10-10"
+  },
+  "sections": [
+    {
+      "id": "architecture",
+      "name": "Architecture",
+      "code": "ARCH",
+      "priority": "primary",
+      "desc": "Core harness architecture, context firebreaks, prompt caching, and memory subsystems.",
+      "accent": "#00f0ff",
+      "count": 3,
+      "subsections": [
+        {
+          "id": "Engine",
+          "count": 1
+        },
+        {
+          "id": "Governance",
+          "count": 1
+        },
+        {
+          "id": "Optimization",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "standards",
+      "name": "Standards",
+      "code": "STND",
+      "priority": "primary",
+      "desc": "Normative standards, context management, repository taxonomy, and naming rules.",
+      "accent": "#54d18a",
+      "count": 3,
+      "subsections": [
+        {
+          "id": "Core",
+          "count": 1
+        },
+        {
+          "id": "Discipline",
+          "count": 1
+        },
+        {
+          "id": "Layout",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "ai-tooling",
+      "name": "AI Tooling",
+      "code": "TOOL",
+      "priority": "primary",
+      "desc": "Operator archetypes, skills catalog, A2A interaction protocol, and memory schemas.",
+      "accent": "#7aa2ff",
+      "count": 3,
+      "subsections": [
+        {
+          "id": "Operators",
+          "count": 1
+        },
+        {
+          "id": "Protocol",
+          "count": 1
+        },
+        {
+          "id": "Skills",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": "supporting",
+      "name": "Supporting",
+      "code": "SUPP",
+      "priority": "primary",
+      "desc": "Operational tool patterns, CLI guides, ast-grep, QMD discovery, and Headroom.",
+      "accent": "#f29254",
+      "count": 3,
+      "subsections": [
+        {
+          "id": "Tools",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "id": "references",
+      "name": "References",
+      "code": "REF",
+      "priority": "primary",
+      "desc": "Industry standards, benchmark methodologies, and conventional commit rules.",
+      "accent": "#c59dff",
+      "count": 2,
+      "subsections": [
+        {
+          "id": "Git",
+          "count": 1
+        },
+        {
+          "id": "Security",
+          "count": 1
+        }
+      ]
+    }
+  ],
+  "articles": [
+    {
+      "file": "standards/agent-skill-pairing-discipline.md",
+      "slug": "standards/agent-skill-pairing-discipline",
+      "title": "Agent-Skill Pairing Discipline & Operator Priority",
+      "section": "standards",
+      "subsection": "Discipline",
+      "severity": "high",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "2 min read",
+      "tags": [],
+      "summary": "Architectural rules governing when to map capabilities to existing Operators versus minting dedicated specialist agents, and strict isolation requirements.",
+      "related": []
+    },
+    {
+      "file": "ai-tooling/a2a-interaction-protocol.md",
+      "slug": "ai-tooling/a2a-interaction-protocol",
+      "title": "Agent-to-Agent (A2A) Interaction Protocol",
+      "section": "ai-tooling",
+      "subsection": "Protocol",
+      "severity": "critical",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "2 min read",
+      "tags": [],
+      "summary": "Standardized protocol for inter-agent messaging, delegation budgets, clean-slate isolation, untrusted input boundaries, and card definitions.",
+      "related": []
+    },
+    {
+      "file": "references/ai-safety-and-data-protection-boundaries.md",
+      "slug": "references/ai-safety-and-data-protection-boundaries",
+      "title": "AI Safety & Data Protection Boundaries",
+      "section": "references",
+      "subsection": "Security",
+      "severity": "critical",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "2 min read",
+      "tags": [],
+      "summary": "Universal guidelines for preventing credential leaks, PII exposure, prompt injection attacks, and untrusted tool invocation.",
+      "related": []
+    },
+    {
+      "file": "supporting/ast-grep-symbol-exploration-pattern.md",
+      "slug": "supporting/ast-grep-symbol-exploration-pattern",
+      "title": "ast-grep Symbol Exploration Pattern",
+      "section": "supporting",
+      "subsection": "Tools",
+      "severity": "info",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "2 min read",
+      "tags": [],
+      "summary": "Operational guide for using ast-grep outline and structural pattern matching to inspect code symbols without reading entire files into context.",
+      "related": []
+    },
+    {
+      "file": "architecture/context-firebreaks-and-prompt-caching.md",
+      "slug": "architecture/context-firebreaks-and-prompt-caching",
+      "title": "Context Firebreaks & Prompt Caching",
+      "section": "architecture",
+      "subsection": "Optimization",
+      "severity": "high",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "3 min read",
+      "tags": [],
+      "summary": "Technical breakdown of context firebreak boundaries, clean-slate subagent isolation, KV-cache prefix stability, and cost reduction strategies.",
+      "related": []
+    },
+    {
+      "file": "standards/context-management-standard.md",
+      "slug": "standards/context-management-standard",
+      "title": "Context Management & Token Efficiency Standard",
+      "section": "standards",
+      "subsection": "Core",
+      "severity": "critical",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "2 min read",
+      "tags": [],
+      "summary": "Normative standard for token budget enforcement, sectional subtree extraction, line-bounded reads, ast-grep outline inspection, and headroom compression.",
+      "related": []
+    },
+    {
+      "file": "references/conventional-commits-specification.md",
+      "slug": "references/conventional-commits-specification",
+      "title": "Conventional Commits Specification",
+      "section": "references",
+      "subsection": "Git",
+      "severity": "info",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "1 min read",
+      "tags": [],
+      "summary": "Standard commit message structure, allowable prefix types (feat, fix, docs, refactor, chore), and automated changelog compatibility.",
+      "related": []
+    },
+    {
+      "file": "architecture/harness-engine-overview.md",
+      "slug": "architecture/harness-engine-overview",
+      "title": "Harness Engine Architecture Overview",
+      "section": "architecture",
+      "subsection": "Engine",
+      "severity": "info",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "3 min read",
+      "tags": [],
+      "summary": "Architectural overview of the decoupled, bare-metal AI agent harness engine, covering layered AGENTS.md, context firebreaks, prompt caching boundaries, and sandboxed A2A execution.",
+      "related": []
+    },
+    {
+      "file": "supporting/headroom-token-compression-guide.md",
+      "slug": "supporting/headroom-token-compression-guide",
+      "title": "Headroom Token Compression Guide",
+      "section": "supporting",
+      "subsection": "Tools",
+      "severity": "info",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "1 min read",
+      "tags": [],
+      "summary": "Using Headroom and tool output summarization to compress bulky CLI outputs, test logs, and build traces before feeding into parent context.",
+      "related": []
+    },
+    {
+      "file": "architecture/layered-agents-and-directive-hierarchy.md",
+      "slug": "architecture/layered-agents-and-directive-hierarchy",
+      "title": "Layered AGENTS.md & Directive Hierarchy",
+      "section": "architecture",
+      "subsection": "Governance",
+      "severity": "critical",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "2 min read",
+      "tags": [],
+      "summary": "Normative ranking rules, directive severity levels (critical, must, should), and folder-level delta scoping for repository AGENTS.md files.",
+      "related": []
+    },
+    {
+      "file": "ai-tooling/operator-archetypes-and-discipline.md",
+      "slug": "ai-tooling/operator-archetypes-and-discipline",
+      "title": "Operator Archetypes & Operational Discipline",
+      "section": "ai-tooling",
+      "subsection": "Operators",
+      "severity": "high",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "2 min read",
+      "tags": [],
+      "summary": "Detailed operational boundaries, responsibilities, and tool restrictions for the five canonical Operator archetypes.",
+      "related": []
+    },
+    {
+      "file": "supporting/qmd-markdown-discovery-pattern.md",
+      "slug": "supporting/qmd-markdown-discovery-pattern",
+      "title": "QMD Markdown Discovery Pattern",
+      "section": "supporting",
+      "subsection": "Tools",
+      "severity": "info",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "1 min read",
+      "tags": [],
+      "summary": "Operational pattern for searching, discovering, and retrieving markdown knowledge chunks via QMD without context bloating.",
+      "related": []
+    },
+    {
+      "file": "standards/repository-taxonomy-and-subfolder-archetypes.md",
+      "slug": "standards/repository-taxonomy-and-subfolder-archetypes",
+      "title": "Repository Taxonomy & Subfolder Archetypes",
+      "section": "standards",
+      "subsection": "Layout",
+      "severity": "medium",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "2 min read",
+      "tags": [],
+      "summary": "Structural rules for the 12 canonical top-level areas, permitted subfolder archetypes, promotion lifecycles, and data flow invariants.",
+      "related": []
+    },
+    {
+      "file": "ai-tooling/skill-authoring-and-dispatch-lifecycle.md",
+      "slug": "ai-tooling/skill-authoring-and-dispatch-lifecycle",
+      "title": "Skill Authoring & Dispatch Lifecycle",
+      "section": "ai-tooling",
+      "subsection": "Skills",
+      "severity": "medium",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "2 min read",
+      "tags": [],
+      "summary": "Standard structure of SKILL.md, metadata headers, helper scripts, progressive disclosure, and dispatch mapping via routing catalogs.",
+      "related": []
+    }
+  ],
+  "stats": {
+    "articles": 14,
+    "reviewedArticles": 14,
+    "coverage": 100,
+    "contributors": 1,
+    "contributorsSource": "article-owners",
+    "sections": 5
+  },
+  "recentEvents": [
+    {
+      "ts": "2026-10-10",
+      "who": "core-harness-team",
+      "what": "Updated: Agent-Skill Pairing Discipline & Operator Priority"
+    },
+    {
+      "ts": "2026-10-10",
+      "who": "core-harness-team",
+      "what": "Updated: Agent-to-Agent (A2A) Interaction Protocol"
+    },
+    {
+      "ts": "2026-10-10",
+      "who": "core-harness-team",
+      "what": "Updated: AI Safety & Data Protection Boundaries"
+    },
+    {
+      "ts": "2026-10-10",
+      "who": "core-harness-team",
+      "what": "Updated: ast-grep Symbol Exploration Pattern"
+    },
+    {
+      "ts": "2026-10-10",
+      "who": "core-harness-team",
+      "what": "Updated: Context Firebreaks & Prompt Caching"
+    },
+    {
+      "ts": "2026-10-10",
+      "who": "core-harness-team",
+      "what": "Updated: Context Management & Token Efficiency Standard"
+    },
+    {
+      "ts": "2026-10-10",
+      "who": "core-harness-team",
+      "what": "Updated: Conventional Commits Specification"
+    },
+    {
+      "ts": "2026-10-10",
+      "who": "core-harness-team",
+      "what": "Updated: Harness Engine Architecture Overview"
+    },
+    {
+      "ts": "2026-10-10",
+      "who": "core-harness-team",
+      "what": "Updated: Headroom Token Compression Guide"
+    },
+    {
+      "ts": "2026-10-10",
+      "who": "core-harness-team",
+      "what": "Updated: Layered AGENTS.md & Directive Hierarchy"
+    },
+    {
+      "ts": "2026-10-10",
+      "who": "core-harness-team",
+      "what": "Updated: Operator Archetypes & Operational Discipline"
+    },
+    {
+      "ts": "2026-10-10",
+      "who": "core-harness-team",
+      "what": "Updated: QMD Markdown Discovery Pattern"
+    }
+  ],
+  "sev": {
+    "critical": {
+      "label": "CRITICAL",
+      "tone": "crit"
+    },
+    "high": {
+      "label": "HIGH",
+      "tone": "high"
+    },
+    "medium": {
+      "label": "MEDIUM",
+      "tone": "med"
+    },
+    "low": {
+      "label": "LOW",
+      "tone": "low"
+    },
+    "info": {
+      "label": "INFO",
+      "tone": "info"
+    }
+  }
+}

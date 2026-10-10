@@ -63,7 +63,7 @@ function HomeScreen({ go, style }) {
             ▸ THE CORE HARNESS ECOSYSTEM
           </div>
           <h1 style={{ fontSize: 38, lineHeight: 1.2 }}>The Knowledge Base & Operating System for AI Agent Harnesses.</h1>
-          <p style={{ fontSize: 16, marginTop: 16, maxWidth: 640 }}>
+          <p style={{ fontSize: 16, marginTop: 16, maxWidth: 820 }}>
             {meta.description || 'Architectural standards, context firebreaks, prompt caching patterns, and multi-agent protocols.'}
           </p>
           <div style={{ display: 'flex', gap: 12, marginTop: 24 }}>

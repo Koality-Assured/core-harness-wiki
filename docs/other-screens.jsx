@@ -79,7 +79,7 @@ function SectionScreen({ section, go }) {
         <h1>{sec.name || sec.id}</h1>
         <span className="mono muted" style={{ fontSize: 12 }}>{articles.length} article(s)</span>
       </div>
-      <p style={{ color: 'var(--fg-2)', maxWidth: 700, marginBottom: 28, borderLeft: `3px solid ${sec.accent || 'var(--accent)'}`, paddingLeft: 14 }}>
+      <p style={{ color: 'var(--fg-2)', maxWidth: 900, marginBottom: 28, borderLeft: `3px solid ${sec.accent || 'var(--accent)'}`, paddingLeft: 14 }}>
         {sec.desc}
       </p>
 
@@ -377,7 +377,7 @@ function SettingsScreen({ go, t, setTweak }) {
       <h1>Wiki Settings & Configuration</h1>
       <p style={{ color: 'var(--fg-2)', marginBottom: 32 }}>Configure local display preferences, themes, and cache settings.</p>
 
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 24, maxWidth: 600 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 24, maxWidth: 840 }}>
         <div style={{ background: 'var(--bg-card)', border: '1px solid var(--line)', padding: 20, borderRadius: 'var(--radius)' }}>
           <h3 style={{ margin: '0 0 12px' }}>Aesthetic Direction</h3>
           <div style={{ display: 'flex', gap: 10 }}>

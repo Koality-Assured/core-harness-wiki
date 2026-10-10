@@ -364,6 +364,7 @@ function ArticleScreen({ slug, go, layout }) {
   }
 
   const sections = article.sections || [];
+  const hasToc = layout !== 'centered' && sections && sections.length > 0;
   const trail = [
     { label: 'Home', route: { name: 'home' } },
     { label: article.section, route: { name: 'section', section: article.section } },
@@ -374,7 +375,7 @@ function ArticleScreen({ slug, go, layout }) {
   return (
     <div>
       <Crumbs trail={trail} go={go} />
-      <div className={`article-view ${layout === 'centered' ? 'layout-centered' : ''}`}>
+      <div className={`article-view ${layout === 'centered' ? 'layout-centered' : ''} ${!hasToc ? 'no-toc' : ''}`}>
         <article className="article-content">
           <header className="article-header">
             <div style={{ display: 'flex', gap: 10, alignItems: 'center', marginBottom: 8 }}>
@@ -427,7 +428,7 @@ function ArticleScreen({ slug, go, layout }) {
           )}
         </article>
 
-        {layout !== 'centered' && sections.length > 0 && (
+        {hasToc && (
           <aside>
             <TOC article={article} sections={sections} activeId={activeId} onJump={onJump} />
           </aside>

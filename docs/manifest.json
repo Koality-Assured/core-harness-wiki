@@ -17,7 +17,7 @@
       "priority": "primary",
       "desc": "Core harness architecture, context firebreaks, prompt caching, and memory subsystems.",
       "accent": "#00f0ff",
-      "count": 3,
+      "count": 5,
       "subsections": [
         {
           "id": "Engine",
@@ -28,7 +28,15 @@
           "count": 1
         },
         {
+          "id": "Memory",
+          "count": 1
+        },
+        {
           "id": "Optimization",
+          "count": 1
+        },
+        {
+          "id": "Routing",
           "count": 1
         }
       ]
@@ -40,14 +48,22 @@
       "priority": "primary",
       "desc": "Normative standards, context management, repository taxonomy, and naming rules.",
       "accent": "#54d18a",
-      "count": 3,
+      "count": 5,
       "subsections": [
         {
           "id": "Core",
           "count": 1
         },
         {
+          "id": "Cost",
+          "count": 1
+        },
+        {
           "id": "Discipline",
+          "count": 1
+        },
+        {
+          "id": "Isolation",
           "count": 1
         },
         {
@@ -63,8 +79,12 @@
       "priority": "primary",
       "desc": "Operator archetypes, skills catalog, A2A interaction protocol, and memory schemas.",
       "accent": "#7aa2ff",
-      "count": 3,
+      "count": 4,
       "subsections": [
+        {
+          "id": "Memory",
+          "count": 1
+        },
         {
           "id": "Operators",
           "count": 1
@@ -86,8 +106,12 @@
       "priority": "primary",
       "desc": "Operational tool patterns, CLI guides, ast-grep, QMD discovery, and Headroom.",
       "accent": "#f29254",
-      "count": 3,
+      "count": 5,
       "subsections": [
+        {
+          "id": "Tooling",
+          "count": 2
+        },
         {
           "id": "Tools",
           "count": 3
@@ -101,8 +125,12 @@
       "priority": "primary",
       "desc": "Industry standards, benchmark methodologies, and conventional commit rules.",
       "accent": "#c59dff",
-      "count": 2,
+      "count": 3,
       "subsections": [
+        {
+          "id": "Evaluation",
+          "count": 1
+        },
         {
           "id": "Git",
           "count": 1
@@ -228,6 +256,38 @@
       "related": []
     },
     {
+      "file": "supporting/cost-layer-validation-pipeline.md",
+      "slug": "supporting/cost-layer-validation-pipeline",
+      "title": "Cost Layer Validation Pipeline & Token Metrics",
+      "section": "supporting",
+      "subsection": "Tooling",
+      "severity": "medium",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "4 min read",
+      "tags": [],
+      "summary": "Operational guide for orchestrating automated cost-layer validation sweeps, measuring token reduction ratios across AST extraction, search index retrieval, and output compression.",
+      "related": []
+    },
+    {
+      "file": "standards/cost-layer-and-context-reduction-standard.md",
+      "slug": "standards/cost-layer-and-context-reduction-standard",
+      "title": "Cost Layers & Context Reduction Standard",
+      "section": "standards",
+      "subsection": "Cost",
+      "severity": "high",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "5 min read",
+      "tags": [],
+      "summary": "Standardized four-layer context reduction architecture enforcing AST structural exploration, semantic markdown discovery, output compression, and prompt caching invariants.",
+      "related": []
+    },
+    {
       "file": "architecture/harness-engine-overview.md",
       "slug": "architecture/harness-engine-overview",
       "title": "Harness Engine Architecture Overview",
@@ -273,6 +333,54 @@
       "reading_time": "2 min read",
       "tags": [],
       "summary": "Normative ranking rules, directive severity levels (critical, must, should), and folder-level delta scoping for repository AGENTS.md files.",
+      "related": []
+    },
+    {
+      "file": "references/multi-agent-fleet-benchmarking-methodology.md",
+      "slug": "references/multi-agent-fleet-benchmarking-methodology",
+      "title": "Multi-Agent Fleet Benchmarking Methodology",
+      "section": "references",
+      "subsection": "Evaluation",
+      "severity": "medium",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "5 min read",
+      "tags": [],
+      "summary": "Empirical benchmarking methodology for evaluating multi-agent systems, measuring delegation contract integrity, tool utilization efficiency, retrieval accuracy, and simulated trajectory costs.",
+      "related": []
+    },
+    {
+      "file": "architecture/multi-agent-task-routing-matrix.md",
+      "slug": "architecture/multi-agent-task-routing-matrix",
+      "title": "Multi-Agent Task Routing Matrix & Dispatch Engine",
+      "section": "architecture",
+      "subsection": "Routing",
+      "severity": "high",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "5 min read",
+      "tags": [],
+      "summary": "Architectural pattern for single-hop task-to-entrypoint resolution, intent classification, declarative area mapping, and coordinator-to-specialist dispatch boundaries in autonomous agent harnesses.",
+      "related": []
+    },
+    {
+      "file": "ai-tooling/operational-memory-and-recovery-checkpoints.md",
+      "slug": "ai-tooling/operational-memory-and-recovery-checkpoints",
+      "title": "Operational Memory & Recovery Checkpoints",
+      "section": "ai-tooling",
+      "subsection": "Memory",
+      "severity": "high",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "5 min read",
+      "tags": [],
+      "summary": "Operational engineering standard and markdown schema for recording agent failure modes, environment quirks, and recovery strategies in operational memory checkpoints.",
       "related": []
     },
     {
@@ -338,76 +446,74 @@
       "tags": [],
       "summary": "Standard structure of SKILL.md, metadata headers, helper scripts, progressive disclosure, and dispatch mapping via routing catalogs.",
       "related": []
+    },
+    {
+      "file": "architecture/three-tier-agent-memory-architecture.md",
+      "slug": "architecture/three-tier-agent-memory-architecture",
+      "title": "Three-Tier Persistent Agent Memory Architecture",
+      "section": "architecture",
+      "subsection": "Memory",
+      "severity": "high",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "5 min read",
+      "tags": [],
+      "summary": "Architectural specification of the three-tier persistent agent memory subsystem, partitioning operational learnings across user identity, specialist agent thread, and model capability dimensions.",
+      "related": []
+    },
+    {
+      "file": "standards/worktree-isolation-and-branch-lifecycle.md",
+      "slug": "standards/worktree-isolation-and-branch-lifecycle",
+      "title": "Worktree Isolation & Branch Lifecycle Standard",
+      "section": "standards",
+      "subsection": "Isolation",
+      "severity": "critical",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "5 min read",
+      "tags": [],
+      "summary": "Normative standard governing isolated worktree environments, task-scoped disposable branches, zero-collision concurrency, and non-destructive post-merge cleanup protocols for mutating agents.",
+      "related": []
+    },
+    {
+      "file": "supporting/worktree-isolation-cli-tooling.md",
+      "slug": "supporting/worktree-isolation-cli-tooling",
+      "title": "Worktree Isolation CLI Tooling Guide",
+      "section": "supporting",
+      "subsection": "Tooling",
+      "severity": "medium",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-10",
+      "reviewed": "2026-10-10",
+      "reading_time": "5 min read",
+      "tags": [],
+      "summary": "Technical implementation guide for building and operating Git worktree management CLI tools, featuring pre-creation branch checks, PR state validation, and non-destructive post-merge archiving.",
+      "related": []
     }
   ],
   "stats": {
-    "articles": 14,
-    "reviewedArticles": 14,
+    "articles": 22,
+    "reviewedArticles": 22,
     "coverage": 100,
     "contributors": 1,
-    "contributorsSource": "article-owners",
+    "contributorsSource": "git-authors",
     "sections": 5
   },
   "recentEvents": [
     {
       "ts": "2026-10-10",
-      "who": "core-harness-team",
-      "what": "Updated: Agent-Skill Pairing Discipline & Operator Priority"
+      "who": "Distasteful",
+      "what": "feat(wiki): initialize core-harness-wiki repository and zero-dependency static engine"
     },
     {
       "ts": "2026-10-10",
-      "who": "core-harness-team",
-      "what": "Updated: Agent-to-Agent (A2A) Interaction Protocol"
-    },
-    {
-      "ts": "2026-10-10",
-      "who": "core-harness-team",
-      "what": "Updated: AI Safety & Data Protection Boundaries"
-    },
-    {
-      "ts": "2026-10-10",
-      "who": "core-harness-team",
-      "what": "Updated: ast-grep Symbol Exploration Pattern"
-    },
-    {
-      "ts": "2026-10-10",
-      "who": "core-harness-team",
-      "what": "Updated: Context Firebreaks & Prompt Caching"
-    },
-    {
-      "ts": "2026-10-10",
-      "who": "core-harness-team",
-      "what": "Updated: Context Management & Token Efficiency Standard"
-    },
-    {
-      "ts": "2026-10-10",
-      "who": "core-harness-team",
-      "what": "Updated: Conventional Commits Specification"
-    },
-    {
-      "ts": "2026-10-10",
-      "who": "core-harness-team",
-      "what": "Updated: Harness Engine Architecture Overview"
-    },
-    {
-      "ts": "2026-10-10",
-      "who": "core-harness-team",
-      "what": "Updated: Headroom Token Compression Guide"
-    },
-    {
-      "ts": "2026-10-10",
-      "who": "core-harness-team",
-      "what": "Updated: Layered AGENTS.md & Directive Hierarchy"
-    },
-    {
-      "ts": "2026-10-10",
-      "who": "core-harness-team",
-      "what": "Updated: Operator Archetypes & Operational Discipline"
-    },
-    {
-      "ts": "2026-10-10",
-      "who": "core-harness-team",
-      "what": "Updated: QMD Markdown Discovery Pattern"
+      "who": "Distasteful",
+      "what": "feat(wiki): initialize core-harness-wiki repository and zero-dependency static engine"
     }
   ],
   "sev": {

@@ -1,20 +1,28 @@
+<div align="center">
+
+![Core Harness Wiki Banner](assets/core-harness-wiki-banner.svg)
+
 # Core Harness Wiki
 
-[![Deploy to GitHub Pages](https://github.com/Koality-Assured/core-harness-wiki/actions/workflows/deploy.yml/badge.svg)](https://github.com/Koality-Assured/core-harness-wiki/actions/workflows/deploy.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
-[![Zero Build Dependencies](https://img.shields.io/badge/Dependencies-0%20npm%20packages-00F0FF.svg)](#zero-dependency-architecture)
+<p align="center">
+  <img src="assets/core-harness-wiki-logo.svg" alt="Core Harness Wiki Logo" width="128" height="128" />
+</p>
 
-> **Universal, zero-dependency static documentation wiki and knowledge base engine for AI agent harnesses and multi-repo routers.**
+**Universal Zero-Dependency Static Documentation Wiki & Knowledge Base Engine**
+
+[![CI](https://github.com/Koality-Assured/core-harness-wiki/actions/workflows/deploy.yml/badge.svg)](https://github.com/Koality-Assured/core-harness-wiki/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Domain: Wiki](https://img.shields.io/badge/domain-wiki-blueviolet.svg)]()
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+
+</div>
 
 ---
 
 ## Overview
 
 **Core Harness Wiki** turns any Markdown-based repository into a live, interactive, browsable single-page documentation portal deployed directly on **GitHub Pages** via standard GitHub Actions.
-
 Built on an in-browser React and Babel architecture with zero npm build dependencies, it compiles Markdown frontmatter and git metadata into a fast manifest, providing lightning-fast search, dynamic dark/light theming, sticky table of contents, and clean intra-wiki linking.
-
 ```
 ┌────────────────────────────────────────────────────────────┐
 │                    GitHub Pages Portal                     │
@@ -32,13 +40,9 @@ Built on an in-browser React and Babel architecture with zero npm build dependen
                  - node docs/scripts/sync-site-content.mjs
                  - actions/deploy-pages@v4 (< 25 seconds)
 ```
-
 ---
-
 ## Key Improvements Over Legacy Wiki Implementations
-
 This engine generalizes and significantly enhances the static wiki methodology previously utilized in corporate environments:
-
 | Feature | Legacy Implementation | Core Harness Wiki |
 | :--- | :--- | :--- |
 | **Initial Page Load** | Mass eager fetching (`Promise.all` downloading hundreds of `.md` files at startup) | **On-demand lazy loading** with memory caching. Immediate startup. |
@@ -48,32 +52,22 @@ This engine generalizes and significantly enhances the static wiki methodology p
 | **Configuration** | Rigid hardcoded arrays in scripts | **Central `wiki.config.json`** with automatic section discovery fallback. |
 | **Proprietary Bounds** | Contained internal URLs, corporate tags, hardcoded accounts | **100% clean, public-ready, open-source architecture**. |
 | **CI / Deployment** | Custom runners or heavy build steps | **Zero-cost GitHub Actions** (< 25s run time on free tier). |
-
 ---
-
 ## Quickstart & Local Development
-
 No `npm install` or compilation step required! Run locally using any standard static file server:
-
 ```bash
 # 1. Validate markdown and build the manifest
 node docs/scripts/build-manifest.mjs
 node docs/scripts/sync-site-content.mjs
-
 # 2. Start a local preview server
 npx serve docs
 # or
 python -m http.server 8000 --directory docs
 ```
-
 Open `http://localhost:3000` (or `http://localhost:8000`) in your browser.
-
 ---
-
 ## Configuration (`wiki.config.json`)
-
 Customize the wiki brand, sections, and default theme at the repository root:
-
 ```json
 {
   "name": "Core Harness Wiki",
@@ -103,29 +97,19 @@ Customize the wiki brand, sections, and default theme at the repository root:
   "defaultTheme": "operative"
 }
 ```
-
 ---
-
 ## Enabling GitHub Pages (Zero Extra Cost)
-
 1. In your GitHub repository, navigate to **Settings → Pages**.
 2. Under **Build and deployment → Source**, select **GitHub Actions**.
 3. Push to `main` or trigger the **Deploy to GitHub Pages** workflow manually.
 4. Your wiki is published at `https://<organization>.github.io/<repository>/` automatically!
-
 ---
-
 ## Integrating Into Other Repositories
-
 To equip any router, agent harness, or repository with this wiki portal:
-
 1. Copy the `docs/` folder into your repository.
 2. Add `.github/workflows/deploy.yml` to your repository.
 3. Add `wiki.config.json` defining your repository sections.
 4. Run `node docs/scripts/build-manifest.mjs` to generate your first manifest!
-
 ---
-
 ## License
-
 [MIT License](LICENSE) © 2026 Koality-Assured

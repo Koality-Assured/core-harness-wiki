@@ -5,7 +5,7 @@
     "description": "Interactive documentation, architectural standards, tool patterns, and agent protocols for the Core Harness ecosystem.",
     "org": "Koality-Assured",
     "repo": "Koality-Assured/core-harness-wiki",
-    "branch": "main",
+    "branch": "feat/repo-beautification",
     "contentBase": ".",
     "updated": "2026-10-10"
   },
@@ -505,6 +505,11 @@
     "sections": 5
   },
   "recentEvents": [
+    {
+      "ts": "2026-10-10",
+      "who": "Distasteful",
+      "what": "chore(manifest): refresh live activity feed with latest widescreen and corpus commit"
+    },
     {
       "ts": "2026-10-10",
       "who": "Distasteful",

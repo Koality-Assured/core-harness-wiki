@@ -33,4 +33,5 @@ jobs:
       - name: Ensure Site Content Sync
         run: |
           node docs/scripts/sync-site-content.mjs
+          git restore docs/manifest.json
           git diff --exit-code

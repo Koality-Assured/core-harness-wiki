@@ -35,3 +35,11 @@ test('sync-site-content invariants', () => {
   const docsRoot = path.join(process.cwd(), 'docs');
   assert.ok(fs.existsSync(docsRoot), 'docs folder must exist');
 });
+
+test('validate-content invariants', () => {
+  // Ensure content validation passes with zero errors
+  assert.doesNotThrow(() => {
+    execSync('node docs/scripts/validate-content.mjs', { stdio: 'inherit' });
+  }, 'validate-content.mjs should exit cleanly with 0 errors');
+});
+

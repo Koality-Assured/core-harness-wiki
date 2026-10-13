@@ -5,9 +5,9 @@
     "description": "Interactive documentation, architectural standards, tool patterns, and agent protocols for the Core Harness ecosystem.",
     "org": "Koality-Assured",
     "repo": "Koality-Assured/core-harness-wiki",
-    "branch": "fix/remediation",
+    "branch": "feat/verification-gates-and-content-invariants",
     "contentBase": ".",
-    "updated": "2026-10-12"
+    "updated": "2026-10-13"
   },
   "sections": [
     {
@@ -18,7 +18,28 @@
       "desc": "Core harness architecture, context firebreaks, prompt caching, and memory subsystems.",
       "accent": "#00f0ff",
       "count": 5,
-      "subsections": []
+      "subsections": [
+        {
+          "id": "Engine",
+          "count": 1
+        },
+        {
+          "id": "Governance",
+          "count": 1
+        },
+        {
+          "id": "Memory",
+          "count": 1
+        },
+        {
+          "id": "Optimization",
+          "count": 1
+        },
+        {
+          "id": "Routing",
+          "count": 1
+        }
+      ]
     },
     {
       "id": "standards",
@@ -27,8 +48,29 @@
       "priority": "primary",
       "desc": "Normative standards, context management, repository taxonomy, and naming rules.",
       "accent": "#54d18a",
-      "count": 5,
-      "subsections": []
+      "count": 6,
+      "subsections": [
+        {
+          "id": "Core",
+          "count": 1
+        },
+        {
+          "id": "Cost",
+          "count": 1
+        },
+        {
+          "id": "Discipline",
+          "count": 2
+        },
+        {
+          "id": "Isolation",
+          "count": 1
+        },
+        {
+          "id": "Layout",
+          "count": 1
+        }
+      ]
     },
     {
       "id": "ai-tooling",
@@ -38,7 +80,24 @@
       "desc": "Operator archetypes, skills catalog, A2A interaction protocol, and memory schemas.",
       "accent": "#7aa2ff",
       "count": 4,
-      "subsections": []
+      "subsections": [
+        {
+          "id": "Memory",
+          "count": 1
+        },
+        {
+          "id": "Operators",
+          "count": 1
+        },
+        {
+          "id": "Protocol",
+          "count": 1
+        },
+        {
+          "id": "Skills",
+          "count": 1
+        }
+      ]
     },
     {
       "id": "supporting",
@@ -48,7 +107,16 @@
       "desc": "Operational tool patterns, CLI guides, ast-grep, QMD discovery, and Headroom.",
       "accent": "#f29254",
       "count": 5,
-      "subsections": []
+      "subsections": [
+        {
+          "id": "Tooling",
+          "count": 2
+        },
+        {
+          "id": "Tools",
+          "count": 3
+        }
+      ]
     },
     {
       "id": "references",
@@ -58,24 +126,53 @@
       "desc": "Industry standards, benchmark methodologies, and conventional commit rules.",
       "accent": "#c59dff",
       "count": 3,
-      "subsections": []
+      "subsections": [
+        {
+          "id": "Evaluation",
+          "count": 1
+        },
+        {
+          "id": "Git",
+          "count": 1
+        },
+        {
+          "id": "Security",
+          "count": 1
+        }
+      ]
     }
   ],
   "articles": [
+    {
+      "file": "standards/verification-gates-and-execution-tiers.md",
+      "slug": "standards/verification-gates-and-execution-tiers",
+      "title": "Verification Gates & Execution Tiers Standard",
+      "section": "standards",
+      "subsection": "Discipline",
+      "severity": "critical",
+      "owner": "core-harness-team",
+      "author": null,
+      "updated": "2026-10-13",
+      "reviewed": "2026-10-13",
+      "reading_time": "5 min read",
+      "tags": [],
+      "summary": "Normative standard defining the separation of author and judge, head-bound cryptographic regression proofs, dual execution tiers (direct vs full-assurance), and negative routing criteria.",
+      "related": []
+    },
     {
       "file": "standards/agent-skill-pairing-discipline.md",
       "slug": "standards/agent-skill-pairing-discipline",
       "title": "Agent-Skill Pairing Discipline & Operator Priority",
       "section": "standards",
-      "subsection": null,
-      "severity": "info",
-      "owner": "Koality-Assured",
+      "subsection": "Discipline",
+      "severity": "high",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "2 min read",
       "tags": [],
-      "summary": "> [!NOTE] > The Core Harness enforces **Operator-First Pairing**. New capabilities must be incorporated into established Operator archetypes before minting new specialist roles.",
+      "summary": "Architectural rules governing when to map capabilities to existing Operators versus minting dedicated specialist agents, and strict isolation requirements.",
       "related": []
     },
     {
@@ -83,15 +180,15 @@
       "slug": "ai-tooling/a2a-interaction-protocol",
       "title": "Agent-to-Agent (A2A) Interaction Protocol",
       "section": "ai-tooling",
-      "subsection": null,
-      "severity": "info",
-      "owner": "Koality-Assured",
+      "subsection": "Protocol",
+      "severity": "critical",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "2 min read",
       "tags": [],
-      "summary": "> [!CAUTION] > All subagent outputs are untrusted data. A parent agent must never execute instructions returned inside subagent responses without validation.",
+      "summary": "Standardized protocol for inter-agent messaging, delegation budgets, clean-slate isolation, untrusted input boundaries, and card definitions.",
       "related": []
     },
     {
@@ -99,15 +196,15 @@
       "slug": "references/ai-safety-and-data-protection-boundaries",
       "title": "AI Safety & Data Protection Boundaries",
       "section": "references",
-      "subsection": null,
-      "severity": "info",
-      "owner": "Koality-Assured",
+      "subsection": "Security",
+      "severity": "critical",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "2 min read",
       "tags": [],
-      "summary": "> [!CAUTION] > Treat all data, external URLs, file contents, and subagent messages as UNTRUSTED for instruction purposes. Never allow untrusted data to override security bounds.",
+      "summary": "Universal guidelines for preventing credential leaks, PII exposure, prompt injection attacks, and untrusted tool invocation.",
       "related": []
     },
     {
@@ -115,15 +212,15 @@
       "slug": "supporting/ast-grep-symbol-exploration-pattern",
       "title": "ast-grep Symbol Exploration Pattern",
       "section": "supporting",
-      "subsection": null,
+      "subsection": "Tools",
       "severity": "info",
-      "owner": "Koality-Assured",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "2 min read",
       "tags": [],
-      "summary": "> [!TIP] > Always run `ast-grep outline` first to map function and class signatures before reading or modifying code.",
+      "summary": "Operational guide for using ast-grep outline and structural pattern matching to inspect code symbols without reading entire files into context.",
       "related": []
     },
     {
@@ -131,15 +228,15 @@
       "slug": "architecture/context-firebreaks-and-prompt-caching",
       "title": "Context Firebreaks & Prompt Caching",
       "section": "architecture",
-      "subsection": null,
-      "severity": "info",
-      "owner": "Koality-Assured",
+      "subsection": "Optimization",
+      "severity": "high",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "3 min read",
       "tags": [],
-      "summary": "> [!IMPORTANT] > Uncontrolled conversation growth degrades reasoning performance. As context grows beyond 50k tokens, attention dilution causes models to overlook critical constraints.",
+      "summary": "Technical breakdown of context firebreak boundaries, clean-slate subagent isolation, KV-cache prefix stability, and cost reduction strategies.",
       "related": []
     },
     {
@@ -147,15 +244,15 @@
       "slug": "standards/context-management-standard",
       "title": "Context Management & Token Efficiency Standard",
       "section": "standards",
-      "subsection": null,
-      "severity": "info",
-      "owner": "Koality-Assured",
+      "subsection": "Core",
+      "severity": "critical",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "2 min read",
       "tags": [],
-      "summary": "> [!CAUTION] > Agents must NEVER dump full file contents into conversation context when outline inspection, grep search, or line-bounded reads can extract the required information.",
+      "summary": "Normative standard for token budget enforcement, sectional subtree extraction, line-bounded reads, ast-grep outline inspection, and headroom compression.",
       "related": []
     },
     {
@@ -163,15 +260,15 @@
       "slug": "references/conventional-commits-specification",
       "title": "Conventional Commits Specification",
       "section": "references",
-      "subsection": null,
+      "subsection": "Git",
       "severity": "info",
-      "owner": "Koality-Assured",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "1 min read",
       "tags": [],
-      "summary": "> [!NOTE] > Consistent commit structure enables automated semantic versioning, deterministic changelog generation, and immediate readability across agent runs.",
+      "summary": "Standard commit message structure, allowable prefix types (feat, fix, docs, refactor, chore), and automated changelog compatibility.",
       "related": []
     },
     {
@@ -179,15 +276,15 @@
       "slug": "supporting/cost-layer-validation-pipeline",
       "title": "Cost Layer Validation Pipeline & Token Metrics",
       "section": "supporting",
-      "subsection": null,
-      "severity": "info",
-      "owner": "Koality-Assured",
+      "subsection": "Tooling",
+      "severity": "medium",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "4 min read",
       "tags": [],
-      "summary": "The **Cost Layer Validation Pipeline** (`validate_cost_layers.py`) automates end-to-end measurement sweeps across all four context layers, calculating exact token consumption, compression ratios, and cache hit rates.",
+      "summary": "Operational guide for orchestrating automated cost-layer validation sweeps, measuring token reduction ratios across AST extraction, search index retrieval, and output compression.",
       "related": []
     },
     {
@@ -195,15 +292,15 @@
       "slug": "standards/cost-layer-and-context-reduction-standard",
       "title": "Cost Layers & Context Reduction Standard",
       "section": "standards",
-      "subsection": null,
-      "severity": "info",
-      "owner": "Koality-Assured",
+      "subsection": "Cost",
+      "severity": "high",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "5 min read",
       "tags": [],
-      "summary": "The **Cost Layers & Context Reduction Standard** mandates an operational defense-in-depth architecture. All file exploration, documentation lookup, command execution, and subagent dispatching must pass through four standardized context-reduction layers.",
+      "summary": "Standardized four-layer context reduction architecture enforcing AST structural exploration, semantic markdown discovery, output compression, and prompt caching invariants.",
       "related": []
     },
     {
@@ -211,15 +308,15 @@
       "slug": "architecture/harness-engine-overview",
       "title": "Harness Engine Architecture Overview",
       "section": "architecture",
-      "subsection": null,
+      "subsection": "Engine",
       "severity": "info",
-      "owner": "Koality-Assured",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "3 min read",
       "tags": [],
-      "summary": "> [!NOTE] > The harness engine acts as an operating system kernel for AI coding assistants. It abstracts provider quirks, isolates mutating operations into disposable worktrees, and guarantees auditable changes.",
+      "summary": "Architectural overview of the decoupled, bare-metal AI agent harness engine, covering layered AGENTS.md, context firebreaks, prompt caching boundaries, and sandboxed A2A execution.",
       "related": []
     },
     {
@@ -227,15 +324,15 @@
       "slug": "supporting/headroom-token-compression-guide",
       "title": "Headroom Token Compression Guide",
       "section": "supporting",
-      "subsection": null,
+      "subsection": "Tools",
       "severity": "info",
-      "owner": "Koality-Assured",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "1 min read",
       "tags": [],
-      "summary": "> [!TIP] > Pipe long command outputs into Headroom or use `scripts/_lib/tool_output.py` to prevent filling context windows with thousands of lines of passing test logs.",
+      "summary": "Using Headroom and tool output summarization to compress bulky CLI outputs, test logs, and build traces before feeding into parent context.",
       "related": []
     },
     {
@@ -243,15 +340,15 @@
       "slug": "architecture/layered-agents-and-directive-hierarchy",
       "title": "Layered AGENTS.md & Directive Hierarchy",
       "section": "architecture",
-      "subsection": null,
-      "severity": "info",
-      "owner": "Koality-Assured",
+      "subsection": "Governance",
+      "severity": "critical",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "2 min read",
       "tags": [],
-      "summary": "> [!WARNING] > Lower-ranked directives or retrieved context chunks can never override a higher-severity rule. Ingesting every nested AGENTS.md upfront violates the JIT ingestion contract.",
+      "summary": "Normative ranking rules, directive severity levels (critical, must, should), and folder-level delta scoping for repository AGENTS.md files.",
       "related": []
     },
     {
@@ -259,15 +356,15 @@
       "slug": "references/multi-agent-fleet-benchmarking-methodology",
       "title": "Multi-Agent Fleet Benchmarking Methodology",
       "section": "references",
-      "subsection": null,
-      "severity": "info",
-      "owner": "Koality-Assured",
+      "subsection": "Evaluation",
+      "severity": "medium",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "5 min read",
       "tags": [],
-      "summary": "The **Multi-Agent Fleet Benchmarking Methodology** establishes an empirical evaluation framework to measure multi-agent system performance across four foundational pillars: **Delegation Contract Integrity**, **Tool Utilization Efficiency**, **Retrieval Accuracy**, and **Simulated Trajectory Cost**.",
+      "summary": "Empirical benchmarking methodology for evaluating multi-agent systems, measuring delegation contract integrity, tool utilization efficiency, retrieval accuracy, and simulated trajectory costs.",
       "related": []
     },
     {
@@ -275,15 +372,15 @@
       "slug": "architecture/multi-agent-task-routing-matrix",
       "title": "Multi-Agent Task Routing Matrix & Dispatch Engine",
       "section": "architecture",
-      "subsection": null,
-      "severity": "info",
-      "owner": "Koality-Assured",
+      "subsection": "Routing",
+      "severity": "high",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "5 min read",
       "tags": [],
-      "summary": "> [!IMPORTANT] > The parent coordinator agent is strictly a validator, planner, and dispatcher. When an incoming task requires mutating repository state or invoking deep domain skills, the coordinator MUST resolve the intent via the Routing Matrix, establish worktree isolation, and spawn a specialist under a clean-s…",
+      "summary": "Architectural pattern for single-hop task-to-entrypoint resolution, intent classification, declarative area mapping, and coordinator-to-specialist dispatch boundaries in autonomous agent harnesses.",
       "related": []
     },
     {
@@ -291,15 +388,15 @@
       "slug": "ai-tooling/operational-memory-and-recovery-checkpoints",
       "title": "Operational Memory & Recovery Checkpoints",
       "section": "ai-tooling",
-      "subsection": null,
-      "severity": "info",
-      "owner": "Koality-Assured",
+      "subsection": "Memory",
+      "severity": "high",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "5 min read",
       "tags": [],
-      "summary": "The **Operational Memory & Recovery Checkpoints** standard establishes a deterministic schema and operational workflow for capturing empirically validated problem-solution pairs. By committing these checkpoints directly to the repository under `ai-tooling/memory/agent/<owner_agent_id>/`, the entire multi-agent fleet…",
+      "summary": "Operational engineering standard and markdown schema for recording agent failure modes, environment quirks, and recovery strategies in operational memory checkpoints.",
       "related": []
     },
     {
@@ -307,15 +404,15 @@
       "slug": "ai-tooling/operator-archetypes-and-discipline",
       "title": "Operator Archetypes & Operational Discipline",
       "section": "ai-tooling",
-      "subsection": null,
-      "severity": "info",
-      "owner": "Koality-Assured",
+      "subsection": "Operators",
+      "severity": "high",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "2 min read",
       "tags": [],
-      "summary": "> [!TIP] > Prefer invoking an existing Operator with targeted parameters over defining a single-use agent.",
+      "summary": "Detailed operational boundaries, responsibilities, and tool restrictions for the five canonical Operator archetypes.",
       "related": []
     },
     {
@@ -323,15 +420,15 @@
       "slug": "supporting/qmd-markdown-discovery-pattern",
       "title": "QMD Markdown Discovery Pattern",
       "section": "supporting",
-      "subsection": null,
+      "subsection": "Tools",
       "severity": "info",
-      "owner": "Koality-Assured",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "1 min read",
       "tags": [],
-      "summary": "> [!NOTE] > QMD operations run against a dedicated index directory (`scratch/qmd-main`), keeping search indexes detached from active task worktrees.",
+      "summary": "Operational pattern for searching, discovering, and retrieving markdown knowledge chunks via QMD without context bloating.",
       "related": []
     },
     {
@@ -339,15 +436,15 @@
       "slug": "standards/repository-taxonomy-and-subfolder-archetypes",
       "title": "Repository Taxonomy & Subfolder Archetypes",
       "section": "standards",
-      "subsection": null,
-      "severity": "info",
-      "owner": "Koality-Assured",
+      "subsection": "Layout",
+      "severity": "medium",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "2 min read",
       "tags": [],
-      "summary": "> [!IMPORTANT] > Unregistered top-level directories are strictly prohibited. Adding a new top-level area requires updating `routing/areas.yaml` and re-generating dispatch indexes.",
+      "summary": "Structural rules for the 12 canonical top-level areas, permitted subfolder archetypes, promotion lifecycles, and data flow invariants.",
       "related": []
     },
     {
@@ -355,15 +452,15 @@
       "slug": "ai-tooling/skill-authoring-and-dispatch-lifecycle",
       "title": "Skill Authoring & Dispatch Lifecycle",
       "section": "ai-tooling",
-      "subsection": null,
-      "severity": "info",
-      "owner": "Koality-Assured",
+      "subsection": "Skills",
+      "severity": "medium",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "2 min read",
       "tags": [],
-      "summary": "> [!NOTE] > Skills encapsulate procedural execution. `AGENTS.md` states intent and MUST rules; skills provide step-by-step workflows.",
+      "summary": "Standard structure of SKILL.md, metadata headers, helper scripts, progressive disclosure, and dispatch mapping via routing catalogs.",
       "related": []
     },
     {
@@ -371,15 +468,15 @@
       "slug": "architecture/three-tier-agent-memory-architecture",
       "title": "Three-Tier Persistent Agent Memory Architecture",
       "section": "architecture",
-      "subsection": null,
-      "severity": "info",
-      "owner": "Koality-Assured",
+      "subsection": "Memory",
+      "severity": "high",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "5 min read",
       "tags": [],
-      "summary": "The **Three-Tier Persistent Agent Memory Architecture** establishes a structured, repository-committed memory system that partitions operational knowledge into three distinct operational scopes: **User Workstation**, **Agent Operational**, and **Model Capability**.",
+      "summary": "Architectural specification of the three-tier persistent agent memory subsystem, partitioning operational learnings across user identity, specialist agent thread, and model capability dimensions.",
       "related": []
     },
     {
@@ -387,15 +484,15 @@
       "slug": "standards/worktree-isolation-and-branch-lifecycle",
       "title": "Worktree Isolation & Branch Lifecycle Standard",
       "section": "standards",
-      "subsection": null,
-      "severity": "info",
-      "owner": "Koality-Assured",
+      "subsection": "Isolation",
+      "severity": "critical",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "5 min read",
       "tags": [],
-      "summary": "This standard defines the **mandatory lifecycle for mutating agent work**: strict worktree isolation, task-scoped disposable branches, and non-destructive post-merge cleanup.",
+      "summary": "Normative standard governing isolated worktree environments, task-scoped disposable branches, zero-collision concurrency, and non-destructive post-merge cleanup protocols for mutating agents.",
       "related": []
     },
     {
@@ -403,27 +500,32 @@
       "slug": "supporting/worktree-isolation-cli-tooling",
       "title": "Worktree Isolation CLI Tooling Guide",
       "section": "supporting",
-      "subsection": null,
-      "severity": "info",
-      "owner": "Koality-Assured",
+      "subsection": "Tooling",
+      "severity": "medium",
+      "owner": "core-harness-team",
       "author": null,
       "updated": "2026-10-10",
-      "reviewed": null,
+      "reviewed": "2026-10-10",
       "reading_time": "5 min read",
       "tags": [],
-      "summary": "The **Worktree Isolation CLI Tooling** pattern wraps low-level Git plumbing with strict safety gates, pre-creation validations, automated GitHub PR state checks, and non-destructive archival protocols.",
+      "summary": "Technical implementation guide for building and operating Git worktree management CLI tools, featuring pre-creation branch checks, PR state validation, and non-destructive post-merge archiving.",
       "related": []
     }
   ],
   "stats": {
-    "articles": 22,
-    "reviewedArticles": 0,
-    "coverage": 0,
+    "articles": 23,
+    "reviewedArticles": 23,
+    "coverage": 100,
     "contributors": 1,
     "contributorsSource": "git-authors",
     "sections": 5
   },
   "recentEvents": [
+    {
+      "ts": "2026-10-12",
+      "who": "Distasteful",
+      "what": "fix: remediation tasks including CI guards, test invariants, and community files (#2)"
+    },
     {
       "ts": "2026-10-10",
       "who": "Distasteful",

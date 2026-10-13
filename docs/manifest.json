@@ -522,6 +522,11 @@
   },
   "recentEvents": [
     {
+      "ts": "2026-10-13",
+      "who": "Distasteful",
+      "what": "feat(wiki): document verification gates standard and automate content validation invariants"
+    },
+    {
       "ts": "2026-10-12",
       "who": "Distasteful",
       "what": "fix: remediation tasks including CI guards, test invariants, and community files (#2)"

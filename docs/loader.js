@@ -59,6 +59,7 @@
           readingTime: fm.reading_time || meta.reading_time,
           tags: fm.tags || meta.tags || [],
           summary: fm.summary || meta.summary,
+          related: fm.related || meta.related || [],
           sections: parsed.sections,
           body: parsed.blocks,
           rawMarkdown: mdText,

@@ -5,7 +5,7 @@ const TWEAK_DEFAULTS = {
   dark: true,
   density: 'regular',
   articleLayout: 'sidebar',
-  homeStyle: 'dashboard',
+  homeStyle: 'index',
 };
 
 function routeToHash(route) {

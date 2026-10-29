@@ -3,7 +3,29 @@ import assert from 'node:assert';
 import fs from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
-import { readManifest } from './lib.mjs';
+import { listAllArticles, parseYamlLite, readArticle, readManifest } from './lib.mjs';
+
+test('YAML-lite frontmatter preserves CRLF block lists', () => {
+  const eol = '\r\n';
+  const frontmatter = [
+    'title: Example',
+    'tags:',
+    '  - parser',
+    '  - frontmatter',
+    'related:',
+    '  - architecture/example',
+  ].join(eol);
+  const parsed = parseYamlLite(frontmatter);
+
+  assert.deepStrictEqual(parsed.tags, ['parser', 'frontmatter']);
+  assert.deepStrictEqual(parsed.related, ['architecture/example']);
+
+  const corpusFile = listAllArticles().find(file => {
+    const { fm } = readArticle(file);
+    return Array.isArray(fm?.tags) && fm.tags.length > 0 && Array.isArray(fm?.related) && fm.related.length > 0;
+  });
+  assert.ok(corpusFile, 'Corpus should contain block-list tags and related metadata');
+});
 
 test('build-manifest invariants', () => {
   // Run the build-manifest script
@@ -18,6 +40,11 @@ test('build-manifest invariants', () => {
   assert.ok(Array.isArray(manifest.articles), 'Manifest must contain an articles array');
   assert.ok(Array.isArray(manifest.sections), 'Manifest must contain a sections array');
   assert.ok(manifest.meta, 'Manifest must contain meta object');
+
+  const manifestSlugs = new Set(manifest.articles.map(article => article.slug));
+  const relatedArticle = manifest.articles.find(article => Array.isArray(article.related) && article.related.length > 0);
+  assert.ok(relatedArticle, 'Manifest must contain at least one related article entry');
+  assert.ok(manifestSlugs.has(relatedArticle.related[0]), 'Representative related reference must resolve to an in-site slug');
 });
 
 test('sync-site-content invariants', () => {

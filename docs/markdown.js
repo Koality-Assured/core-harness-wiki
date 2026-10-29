@@ -3,12 +3,43 @@
 // task lists, GitHub alerts (> [!NOTE]), callouts (::: tone), tables, and fenced code blocks.
 
 (function () {
+  function parseYamlScalar(raw) {
+    const value = String(raw == null ? '' : raw).trim();
+    if (value.startsWith('[') && value.endsWith(']')) {
+      const inner = value.slice(1, -1).trim();
+      return inner
+        ? inner.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/).map(s => {
+          const item = s.trim();
+          return (item.startsWith('"') && item.endsWith('"')) || (item.startsWith("'") && item.endsWith("'"))
+            ? item.slice(1, -1)
+            : item;
+        })
+        : [];
+    }
+    if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+      return value.slice(1, -1);
+    }
+    if (/^-?\d+(\.\d+)?$/.test(value)) return parseFloat(value);
+    if (value === 'true' || value === 'false') return value === 'true';
+    if (value === '~' || value === 'null' || value === '') return null;
+    return value;
+  }
+
   function parseYamlLite(src) {
     const out = {};
-    const lines = src.split('\n');
+    const lines = String(src == null ? '' : src).replace(/\r\n?/g, '\n').split('\n');
     let currentKey = null;
     let multiline = false;
     let multilineBuf = [];
+    let blockListKey = null;
+    let blockList = [];
+
+    const finishBlockList = () => {
+      if (!blockListKey) return;
+      out[blockListKey] = blockList.length > 0 ? blockList : null;
+      blockListKey = null;
+      blockList = [];
+    };
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
@@ -26,6 +57,15 @@
         }
       }
 
+      if (blockListKey) {
+        const listItem = line.match(/^\s+-\s*(.*?)\s*$/);
+        if (listItem) {
+          blockList.push(parseYamlScalar(listItem[1]));
+          continue;
+        }
+        finishBlockList();
+      }
+
       const m = line.match(/^([A-Za-z_][A-Za-z0-9_-]*)\s*:\s*(.*)$/);
       if (!m) continue;
       const key = m[1];
@@ -38,33 +78,21 @@
         continue;
       }
 
-      let val;
-      if (raw.startsWith('[') && raw.endsWith(']')) {
-        const inner = raw.slice(1, -1).trim();
-        val = inner
-          ? inner.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/).map(s => {
-            const t = s.trim();
-            return (t.startsWith('"') && t.endsWith('"')) || (t.startsWith("'") && t.endsWith("'"))
-              ? t.slice(1, -1) : t;
-          })
-          : [];
-      } else if ((raw.startsWith('"') && raw.endsWith('"')) || (raw.startsWith("'") && raw.endsWith("'"))) {
-        val = raw.slice(1, -1);
-      } else if (/^-?\d+(\.\d+)?$/.test(raw)) {
-        val = parseFloat(raw);
-      } else if (raw === 'true' || raw === 'false') {
-        val = raw === 'true';
-      } else if (raw === '~' || raw === 'null' || raw === '') {
-        val = null;
-      } else {
-        val = raw;
+      if (raw === '') {
+        // Keep the existing null behavior for empty scalars; an indented list
+        // below this key replaces it when the block is flushed.
+        out[key] = null;
+        blockListKey = key;
+        blockList = [];
+        continue;
       }
-      out[key] = val;
+      out[key] = parseYamlScalar(raw);
     }
 
     if (multiline && currentKey) {
       out[currentKey] = multilineBuf.join(' ').trim();
     }
+    finishBlockList();
 
     return out;
   }

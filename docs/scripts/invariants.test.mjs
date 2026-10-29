@@ -3,6 +3,7 @@ import assert from 'node:assert';
 import fs from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
+import vm from 'node:vm';
 import { listAllArticles, parseYamlLite, readArticle, readManifest } from './lib.mjs';
 
 test('YAML-lite frontmatter preserves CRLF block lists', () => {
@@ -25,6 +26,58 @@ test('YAML-lite frontmatter preserves CRLF block lists', () => {
     return Array.isArray(fm?.tags) && fm.tags.length > 0 && Array.isArray(fm?.related) && fm.related.length > 0;
   });
   assert.ok(corpusFile, 'Corpus should contain block-list tags and related metadata');
+});
+
+test('loader preserves related metadata when hydrating articles', async () => {
+  const loaderSource = fs.readFileSync(path.join(process.cwd(), 'docs', 'loader.js'), 'utf8');
+  const manifest = {
+    sections: [],
+    articles: [
+      { slug: 'architecture/from-frontmatter', file: 'from-frontmatter.md', related: [] },
+      { slug: 'architecture/from-manifest', file: 'from-manifest.md', related: ['standards/from-manifest'] },
+    ],
+    sev: {},
+    recentEvents: [],
+    stats: { articles: 2 },
+    meta: {},
+  };
+  const markdownByPath = {
+    './from-frontmatter.md': 'frontmatter-related',
+    './from-manifest.md': 'manifest-related',
+  };
+  const context = {
+    console: { info() {}, warn() {} },
+    fetch: async requestPath => {
+      if (requestPath === 'manifest.json') {
+        return { ok: true, json: async () => manifest };
+      }
+      return {
+        ok: true,
+        text: async () => markdownByPath[requestPath],
+      };
+    },
+    window: {
+      WIKI_MANIFEST_PATH: 'manifest.json',
+      MD: {
+        parseMarkdown: markdown => ({
+          frontmatter: markdown === 'frontmatter-related'
+            ? { related: ['standards/from-frontmatter'] }
+            : {},
+          sections: [],
+          blocks: [],
+        }),
+      },
+    },
+  };
+
+  vm.runInNewContext(loaderSource, context, { filename: 'docs/loader.js' });
+  await context.window.WIKI_READY;
+
+  const fromFrontmatter = await context.window.WIKI_LOADER.loadArticle('architecture/from-frontmatter');
+  assert.deepStrictEqual(fromFrontmatter.related, ['standards/from-frontmatter']);
+
+  const fromManifest = await context.window.WIKI_LOADER.loadArticle('architecture/from-manifest');
+  assert.deepStrictEqual(fromManifest.related, ['standards/from-manifest']);
 });
 
 test('build-manifest invariants', () => {

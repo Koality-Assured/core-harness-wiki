@@ -11,15 +11,16 @@ function normalizePath(p) {
     }
     out.push(part);
   }
-  return out.join('/');
+  return out.join('/').replace(/^docs\//i, '');
 }
 
-function resolveDocPath(baseFile, hrefPath) {
+function resolveDocPaths(baseFile, hrefPath) {
   const target = String(hrefPath || '').replace(/\\/g, '/');
-  if (!target) return '';
-  if (target.startsWith('/')) return normalizePath(target);
+  if (!target) return [];
   const baseDir = String(baseFile || '').replace(/\\/g, '/').split('/').slice(0, -1);
-  return normalizePath([...baseDir, ...target.split('/')].join('/'));
+  const rootPath = normalizePath(target);
+  const relativePath = normalizePath([...baseDir, ...target.split('/')].join('/'));
+  return [...new Set([rootPath, relativePath].filter(Boolean))];
 }
 
 function findArticleByPath(docPath) {
@@ -29,6 +30,16 @@ function findArticleByPath(docPath) {
     const fPath = normalizePath(a.file || `${a.slug}.md`);
     return fPath === targetPath || a.slug === targetSlug;
   });
+}
+
+function findArticleByReference(reference) {
+  const raw = String(reference || '').trim();
+  if (!raw || /^[a-z][a-z0-9+.-]*:/i.test(raw) || raw.startsWith('//')) return null;
+  const pathPart = raw.split('#')[0].split('?')[0];
+  const directSlug = normalizePath(pathPart).replace(/\.md$/i, '');
+  const direct = (window.WIKI_DATA?.articles || []).find(article => article.slug === directSlug);
+  if (direct) return direct;
+  return findArticleByPath(pathPart);
 }
 
 function githubBlobHref(docPath, anchor) {
@@ -73,12 +84,12 @@ function resolveHref(article, rawHref) {
   const hashIdx = href.indexOf('#');
   const pathPart = hashIdx >= 0 ? href.slice(0, hashIdx) : href;
   const anchor = hashIdx >= 0 ? decodeURIComponent(href.slice(hashIdx + 1)) : null;
-  const resolvedPath = resolveDocPath(article.file || `${article.slug}.md`, pathPart);
-  const targetArt = findArticleByPath(resolvedPath);
+  const resolvedPaths = resolveDocPaths(article.file || `${article.slug}.md`, pathPart);
+  const targetArt = resolvedPaths.map(findArticleByPath).find(Boolean);
   if (targetArt) {
     return { type: 'article', slug: targetArt.slug, anchor };
   }
-  const fallback = githubBlobHref(resolvedPath, anchor);
+  const fallback = githubBlobHref(resolvedPaths[0] || pathPart, anchor);
   if (fallback) return { type: 'source', href: fallback };
   return { type: 'external', href };
 }
@@ -313,6 +324,44 @@ function TOC({ article, sections, activeId, onJump }) {
   );
 }
 
+function RelatedArticleLink({ reference, go }) {
+  const raw = String(reference || '').trim();
+  const target = findArticleByReference(raw);
+
+  if (target) {
+    return (
+      <a
+        className="related-link"
+        href={`#/${target.slug}`}
+        onClick={(e) => {
+          e.preventDefault();
+          go({ name: 'article', slug: target.slug });
+        }}
+      >
+        <span aria-hidden="true">→</span>
+        <span>{target.title}</span>
+      </a>
+    );
+  }
+
+  if (/^[a-z][a-z0-9+.-]*:/i.test(raw) || raw.startsWith('//')) {
+    return (
+      <a className="related-link" href={raw} target="_blank" rel="noreferrer">
+        <span>{raw}</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    );
+  }
+
+  const sourceHref = githubBlobHref(normalizePath(raw));
+  return sourceHref ? (
+    <a className="related-link" href={sourceHref} target="_blank" rel="noreferrer">
+      <span>{raw}</span>
+      <span aria-hidden="true">↗</span>
+    </a>
+  ) : null;
+}
+
 function ArticleScreen({ slug, go, layout }) {
   const [article, setArticle] = React.useState(null);
   const [loading, setLoading] = React.useState(true);
@@ -412,16 +461,9 @@ function ArticleScreen({ slug, go, layout }) {
               <h3 style={{ fontSize: 14, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--muted)' }}>
                 Related Articles
               </h3>
-              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 12 }}>
-                {article.related.map((relSlug) => (
-                  <button
-                    key={relSlug}
-                    className="btn"
-                    style={{ fontSize: 12 }}
-                    onClick={() => go({ name: 'article', slug: relSlug })}
-                  >
-                    → {relSlug}
-                  </button>
+              <div className="related-links">
+                {article.related.map((reference) => (
+                  <RelatedArticleLink key={reference} reference={reference} go={go} />
                 ))}
               </div>
             </div>
